@@ -1,0 +1,85 @@
+\chapter{Wichtige Hinweise und \LaTeX-Grundlagen}
+
+\section{Make}\label{make}
+
+Für diese Vorlage wird ein Makefile zur Verfügung gestellt, welches automatisch alle Schritte ausführt, die für das fertige Dokument nötig sind. Make prüft, ob die Quelldateien verändert wurden, falls nicht, werden auch keine Befehle ausgeführt.
+
+Folgende Befehle werden durch das Makefile druchgeführt, falls sich die Quelldateien verändert haben:
+
+\begin{enumerate}
+    \item \texttt{lualatex BachelorArbeit.tex}
+    \item \texttt{biber BachelorArbeit.tex}
+    \item \texttt{lualatex BachelorArbeit.tex}
+    \item \texttt{lualatex BachelorArbeit.tex}
+    \item verschieben der Hilfs- und Logdateien in den Ordner logfiles
+\end{enumerate}
+
+Download und weitere Informationen zu Make gibt es unter \cite{make}.
+Rufen sie einfach in der Konsole im Verzeichnis der Arbeit den Befehl \texttt{make}.
+
+\section{\LaTeX-Grundlagen}
+
+Bitte beachten Sie beim schreiben der Arbeit folgende Konventionen bzw. Grundlagen:
+
+\begin{itemize}
+    \item \textbf{Abschnitte und Zeilenumbrüche} \\
+        Es sollten im Fließtext keine Zeilenumbrüche mit \textbackslash\textbackslash \ erzwungen werden.
+        Schreiben sie höchsten einen Satz in eine Code-Zeile.
+        Absätze werden im Code mit einer Leerzeile markiert und dann entsprechend der Einstellung von \texttt{parskip} in der Dokumentenklasse gesetzt.
+    \item \textbf{Trennung} \\
+        \LaTeX \ trennt keine Wörter, in denen Umlaute oder Bindestriche vorkommen. 
+        In diesen Wörtern müs\-sen die mög\-lichen Trennstellen mit einem \texttt{\textbackslash -} markiert werden: \texttt{Wör\textbackslash-ter}.
+        Andernfalls können diese Wörter dann in den Rand hineinragen.
+
+
+\end{itemize}
+
+\section{Zahlen und Einheiten}
+
+Jede Zahl, jede Einheit und jede Zahl mit Einheit sollte mit Hilfe der in dem Paket \texttt{siunitx} zur Verfügung gestellten Befehle gesetzt werden.
+
+Grundsätzlich gilt: Einheiten werden aufrecht gesetzt und haben ein kleines Leerzeichen (\verb+\,+) Abstand zu ihrer Zahl. 
+Werden Fließkommazahlen ohne \texttt{siunitx} gesetzt, entsteht ein hässlicher Leerraum zwischen Komma und erster Nachkommastelle, da \LaTeX \ das Komma nicht als Dezimaltrennzeichen, sondern als Satzzeichen interpretiert.
+
+Das Paket wurde mit deutschen Spracheinstellungen (also mit Komma als Dezimaltrennzeichen und $\cdot$ zwischen Zahl und Zehnerpotenz) geladen, sowie mit den Einstellungen, dass die Standardabweichung stets durch $\pm$ abgetrennt wird und Einheiten falls nötig als Brüche ausgegeben werden.
+
+\begin{table}[!h]
+    \centering
+    \caption{Beispiele für siunitx}
+    \label{tab:si}
+    \begin{tabular}{l r}
+        \toprule
+        Befehl     &   Ergebnis \\
+        \midrule
+        \verb+\num{1.2345}+ & \num{1.2345} \\
+        \verb+\num{1.2e3}+ & \num{1.2e3} \\
+        \verb_\num{1.2 +- 0.2}_ & \num{1.2+-0.2} \\
+        \verb+\num{10000}+ & \num{10000} \\
+        \verb+\si{\meter\per\second}+ & \si{\meter\per\second} \\
+        \verb+\SI{1.2(1)}{\micro\ampere}+ & \SI{1.2(1)}{\micro\ampere} \\
+        \verb+\SI{1.2\pm0.1e3}{\kilo\gram\per\cubic\meter}+ & \SI{1.2\pm0.1e3}{\kilo\gram\per\cubic\meter} \\
+        \bottomrule 
+    \end{tabular}
+\end{table}
+
+Das Paket stellt unter anderem die drei wichtigen Befehle
+\begin{itemize}
+    \item \texttt{\textbackslash num\{Zahl\}},
+    \item \texttt{\textbackslash si\{Einheit\}} und
+    \item \texttt{\textbackslash SI\{Zahl\}\{Einheit\}}
+\end{itemize}
+zur Verfügung.
+Diese Befehle sollten stets genutzt werden, wenn Zahlen angegeben werden. 
+Sie funktionieren sowohl im Text- als auch im Mathematikmodus.
+In Tabelle \ref{tab:si} sind einige Beispiele aufgetragen. Bitte lesen sie die Dokumentation \cite{siunitx}.
+
+\section{Das Literaturverzeichnis}
+
+Das Literaturverzeichnis wird mit Hilfe von BibLaTeX und biber erstellt.
+Tragen Sie alle ihre Quellen in die Datei \texttt{references.bib} ein, sie enthält bereits
+einige Beispiele. Für weitere Informationen lesen sie bitte die Dokumentation \cite{biblatex}.
+
+Im Text können sie mit \verb_\cite{kürzel}_ zitieren. Seitenzahlen geben Sie in eckigen Klammern an:
+\verb_\cite[S.~10]{kürzel}_. Das Literaturverzeichnis ist so eingestellt, dass es Ihre Quellen in alphabetischer Reihenfolge nummeriert.
+
+Damit das Literaturverzeichnis erstellt wird, ist ein Aufruf von \texttt{biber} nach einem ersten kompilieren mit \texttt{lualatex} nötig. Danach muss das Dokument erneut mit \texttt{lualatex} kompiliert werden. Haben sie Make installiert, übernimmt dies für Sie das Makefile. Siehe Sektion \ref{make}
