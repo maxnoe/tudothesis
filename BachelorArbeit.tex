@@ -27,7 +27,10 @@
 %----------------------------- Encoding: --------------------------------------
 %------------------------------------------------------------------------------
 
-\usepackage[utf8]{luainputenc}
+% falls es Probleme mit Umlauten gibt, überprüfen ob die Texfiles utf8-codiert 
+%sind, evtl auch wieder einkommentieren
+
+%\usepackage[utf8]{luainputenc}
 
 %------------------------------------------------------------------------------
 %------------------------------ Sprache und Schrift: --------------------------
@@ -35,7 +38,14 @@
 
 \usepackage[ngerman]{babel}
 \usepackage{csquotes}           % stellt den \enquote{} Befehl
-\usepackage{lmodern}            % Schriftart Latin Modern
+
+
+% Schriftarten einstellen, hier können auch Schriftarten des Systems genutzt werden:
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+
 
 
 %------------------------------------------------------------------------------
@@ -54,8 +64,12 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+
+
+
 \usepackage{xfrac}          % schöne Brüche im Text mit \sfrac{}{}
-\usepackage[ngerman]{varioref}
 
 
 %	Gleichungsnummern Kapitel.Unterkapitel.Gleichung
@@ -116,6 +130,7 @@
 \usepackage[pdfusetitle,unicode]{hyperref}
 \usepackage{xcolor}
 \usepackage{eurosym}
+\usepackage[ngerman]{varioref}
 
 
 %------------------------------------------------------------------------------
