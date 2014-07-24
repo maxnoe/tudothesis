@@ -1,7 +1,9 @@
 \chapter{Wichtige Hinweise und \LaTeX-Grundlagen}
 
 Diese Vorlage ist auf die Kompilierung mit \texttt{lualatex} ausgelegt. Es wird die \KOMAScript-Klasse \texttt{scrbook} verwendet.
-Falls Sie Änderungen am Layout vornehmen möchten, lesen sie die \KOMAScript-Dokumentation: \cite{koma}.
+Falls Sie Änderungen am Layout vornehmen möchten, lesen Sie die \KOMAScript-Dokumentation: \cite{koma}.
+
+Lesenswert ist außerdem das \LaTeX-Tabu: \cite{l2tabu}, sowie \emph{Modern Packages for \LaTeX} von Philipp Leser: \cite{pleser}.
 
 \section{Make}\label{make}
 
@@ -18,7 +20,7 @@ Folgende Befehle werden durch das Makefile druchgeführt, falls sich die Quellda
 \end{enumerate}
 
 Download und weitere Informationen zu Make gibt es unter \cite{make}.
-Rufen sie einfach in der Konsole im Verzeichnis der Arbeit den Befehl \texttt{make}.
+Rufen Sie einfach in der Konsole im Verzeichnis der Arbeit den Befehl \texttt{make}.
 
 \section{\LaTeX-Grundlagen}
 
@@ -27,7 +29,7 @@ Bitte beachten Sie beim schreiben der Arbeit folgende Konventionen bzw. Grundlag
 \begin{itemize}
     \item \textbf{Abschnitte und Zeilenumbrüche} \\
         Es sollten im Fließtext keine Zeilenumbrüche mit \textbackslash\textbackslash \ erzwungen werden.
-        Schreiben sie höchsten einen Satz in eine Code-Zeile.
+        Schreiben Sie höchsten einen Satz in eine Code-Zeile.
         Absätze werden im Code mit einer Leerzeile markiert und dann entsprechend der Einstellung von \texttt{parskip} in der Dokumentenklasse gesetzt.
     \item \textbf{Trennung} \\
         \LaTeX \ trennt keine Wörter, in denen Umlaute oder Bindestriche vorkommen. 
@@ -74,15 +76,15 @@ Das Paket stellt unter anderem die drei wichtigen Befehle
 zur Verfügung.
 Diese Befehle sollten stets genutzt werden, wenn Zahlen angegeben werden. 
 Sie funktionieren sowohl im Text- als auch im Mathematikmodus.
-In Tabelle \ref{tab:si} sind einige Beispiele aufgetragen. Bitte lesen sie die Dokumentation \cite{siunitx}.
+In Tabelle \ref{tab:si} sind einige Beispiele aufgetragen. Bitte lesen Sie die Dokumentation \cite{siunitx}.
 
 \section{Das Literaturverzeichnis}
 
 Das Literaturverzeichnis wird mit Hilfe von BibLaTeX und biber erstellt.
-Tragen Sie alle ihre Quellen in die Datei \texttt{references.bib} ein, sie enthält bereits
-einige Beispiele. Für weitere Informationen lesen sie bitte die Dokumentation \cite{biblatex}.
+Tragen Sie alle ihre Quellen in die Datei \texttt{references.bib} ein, Sie enthält bereits
+einige Beispiele. Für weitere Informationen lesen Sie bitte die Dokumentation \cite{biblatex}.
 
-Im Text können sie mit \verb_\cite{kürzel}_ zitieren. Seitenzahlen geben Sie in eckigen Klammern an:
+Im Text können Sie mit \verb_\cite{kürzel}_ zitieren. Seitenzahlen geben Sie in eckigen Klammern an:
 \verb_\cite[S.~10]{kürzel}_. Das Literaturverzeichnis ist so eingestellt, dass es Ihre Quellen in alphabetischer Reihenfolge nummeriert.
 
-Damit das Literaturverzeichnis erstellt wird, ist ein Aufruf von \texttt{biber} nach einem ersten kompilieren mit \texttt{lualatex} nötig. Danach muss das Dokument erneut mit \texttt{lualatex} kompiliert werden. Haben sie Make installiert, übernimmt dies für Sie das Makefile. Siehe Sektion \ref{make}
+Damit das Literaturverzeichnis erstellt wird, ist ein Aufruf von \texttt{biber} nach einem ersten kompilieren mit \texttt{lualatex} nötig. Danach muss das Dokument erneut mit \texttt{lualatex} kompiliert werden. Haben Sie Make installiert, übernimmt dies für Sie das Makefile. Siehe Sektion \ref{make}
