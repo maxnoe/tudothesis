@@ -1,11 +1,12 @@
-\chapter{Wichtige Hinweise und \LaTeX-Grundlagen}
+\chapter{Wichtige Hinweise zum Dokument}\label{make}
 
-Diese Vorlage ist auf die Kompilierung mit \texttt{lualatex} ausgelegt. Es wird die \KOMAScript-Klasse \texttt{scrbook} verwendet.
+Diese Vorlage ist auf die Kompilierung mit \texttt{lualatex} ausgelegt. 
+Als Dokumentenklasse  wird die \KOMAScript\-Klasse \texttt{scrbook} verwendet.
 Falls Sie Änderungen am Layout vornehmen möchten, lesen Sie die \KOMAScript-Dokumentation: \cite{koma}.
 
 Lesenswert ist außerdem das \LaTeX-Tabu: \cite{l2tabu}, sowie \emph{Modern Packages for \LaTeX} von Philipp Leser: \cite{pleser}.
 
-\section{Make}\label{make}
+\section{Erstellen des Ausgabedokuments mit Make}
 
 Für diese Vorlage wird ein Makefile zur Verfügung gestellt, welches automatisch alle Schritte ausführt, die für das fertige Dokument nötig sind. Make prüft, ob die Quelldateien verändert wurden, falls nicht, werden auch keine Befehle ausgeführt.
 
@@ -19,12 +20,38 @@ Folgende Befehle werden durch das Makefile druchgeführt, falls sich die Quellda
     \item verschieben der Hilfs- und Logdateien in den Ordner logfiles
 \end{enumerate}
 
+
 Download und weitere Informationen zu Make gibt es unter \cite{make}.
-Rufen Sie einfach in der Konsole im Verzeichnis der Arbeit den Befehl \texttt{make}.
+Wenn Sie Make installiert haben, rufen Sie einfach in der Konsole im Verzeichnis der Arbeit den Befehl \texttt{make}.
 
-\section{\LaTeX-Grundlagen}
+\section{Erstellen des Ausgabedokuments mit Texmaker}
 
-Bitte beachten Sie beim schreiben der Arbeit folgende Konventionen bzw. Grundlagen:
+Ein beliebter Editor für alle Betriebssysteme ist Texmaker, Download unter \cite{texmaker}.
+Damit Texmaker das Dokument korrekt kompiliert, fügen sie einen benutzerdefinierten Befehl hinzu:
+\begin{enumerate}
+    \item Klicken sie oben in der Menüleiste auf \emph{Benutzer/in}
+    \item Klick auf \emph{Eigene Befehle}
+    \item Klich auf \emph{Eigene Befehle editieren}, dort können Sie bis zu 5 eigene Befehle definieren
+    \item Geben Sie dem Befehl unter \emph{Menüeintrag} einen Namen und tragen sie folgende Zeile in das Befehlsfeld ein: \\
+        \texttt{lualatex \%.tex | biber \%.bcf | lualatex \%.tex | lualatex \%.tex}
+    \item Bestätigen Sie mit \emph{OK}
+\end{enumerate}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=12cm]{Plots/texmaker.png}
+    \caption{Screenshot zur Erstellung des Kompilier-Befehls in Texmaker}
+    \label{fig:texmaker}
+\end{figure}
+
+
+In Abbildung \ref{fig:texmaker} ist ein Screenshot des Befehlsmenü gezeigt. Ihren Befehl können Sie nun im Drop-Down-Menü zum 
+kompilieren des Dokuments auswählen und mit einem Klick auf den Pfeil starten.
+
+
+\chapter{\LaTeX-Grundlagen}
+
+Bitte beachten Sie beim Schreiben der Arbeit folgende Konventionen bzw. Grundlagen:
 
 \begin{itemize}
     \item \textbf{Abschnitte und Zeilenumbrüche} \\
@@ -42,7 +69,6 @@ Bitte beachten Sie beim schreiben der Arbeit folgende Konventionen bzw. Grundlag
 \section{Zahlen und Einheiten}
 
 Jede Zahl, jede Einheit und jede Zahl mit Einheit sollte mit Hilfe der in dem Paket \texttt{siunitx} zur Verfügung gestellten Befehle gesetzt werden.
-
 Grundsätzlich gilt: Einheiten werden aufrecht gesetzt und haben ein kleines Leerzeichen (\verb+\,+) Abstand zu ihrer Zahl. 
 Werden Fließkommazahlen ohne \texttt{siunitx} gesetzt, entsteht ein hässlicher Leerraum zwischen Komma und erster Nachkommastelle, da \LaTeX \ das Komma nicht als Dezimaltrennzeichen, sondern als Satzzeichen interpretiert.
 
@@ -87,4 +113,7 @@ einige Beispiele. Für weitere Informationen lesen Sie bitte die Dokumentation \
 Im Text können Sie mit \verb_\cite{kürzel}_ zitieren. Seitenzahlen geben Sie in eckigen Klammern an:
 \verb_\cite[S.~10]{kürzel}_. Das Literaturverzeichnis ist so eingestellt, dass es Ihre Quellen in alphabetischer Reihenfolge nummeriert.
 
-Damit das Literaturverzeichnis erstellt wird, ist ein Aufruf von \texttt{biber} nach einem ersten kompilieren mit \texttt{lualatex} nötig. Danach muss das Dokument erneut mit \texttt{lualatex} kompiliert werden. Haben Sie Make installiert, übernimmt dies für Sie das Makefile. Siehe Sektion \ref{make}
+Damit das Literaturverzeichnis erstellt wird, ist ein Aufruf von \texttt{biber} nach einem ersten kompilieren mit \texttt{lualatex} nötig.
+Danach muss das Dokument erneut mit \texttt{lualatex} kompiliert werden. 
+
+Zum korrekten Kompilieren des Dokuments siehe Kapitel \ref{make}.
