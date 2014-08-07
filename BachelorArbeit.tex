@@ -23,13 +23,14 @@
         ngerman,                % Deutsche Spracheinstellung
         BCOR=12mm,              % 12mm Binderandkorrektur
         parskip=half,           % Absätze als halbe Leerzeile
+        headsepline,            % Linie zwischen Kopfzeile und Dokument
         cleardoublepage=plain,  % Keine Kopf/Fußzeile auf Leerseiten
         bibliography=totoc,     % Bibliographie als nicht-nummeriertes 
                                 % Kapitel im Inhaltsverzeichnis
         %open=right,             % Kapitel beginnen immer aufrechten Seiten
         open=any,               % Kapitel dürfen auf beiden Seiten beginnen
+        numbers=noenddot,       % Keine Punkte nach Abbildungsnummern
         captions=tableheading,  % Spacing für Captions über Tabellen an
-        headsepline,            % Linie unter der Kopfzeile
         titlepage=firstiscover, % Titelseite ist Deckblatt, symmetrische Ränder
         headings=normal         % kleinere Überschriften
     ]
@@ -52,7 +53,8 @@
 %------------------------------ Sprache und Schrift: --------------------------
 %------------------------------------------------------------------------------
 
-\usepackage[ngerman]{babel}     % Deutsche Spracheinstellungen
+\usepackage{polyglossia}     % Deutsche Spracheinstellungen
+    \setdefaultlanguage{german}
 
 \usepackage{csquotes}           % stellt den \enquote{} Befehl
 
@@ -69,11 +71,20 @@
 
 
 %------------------------------------------------------------------------------
-%-------------------------Pakete für Kopf/Fußzeile: ---------------------------
+%-------------------------   Kopf/Fußzeile/Farben------------------------------
 %------------------------------------------------------------------------------
 
-\usepackage{scrpage2}
+\usepackage{xcolor}
+\xdefinecolor{tugreen}{RGB}{128, 186, 38}
+
+\usepackage{scrlayer-scrpage}
 \pagestyle{scrheadings}
+
+\addtokomafont{title}{\color{tugreen}}      % Titel auf der Titelseite in TU-Grün
+\addtokomafont{chapter}{\color{tugreen}}    % Kapitel-Pberschrift in Grün
+\addtokomafont{section}{\color{tugreen}}    % Unterkapitel-Überschrift in TU-Grün
+\addtokomafont{pagenumber}{\color{tugreen}} % Seitenzahl in TU-Grün
+\setheadsepline{0.75pt}[\color{tugreen}]    % Linie unter Kopzzeile in TU-Grün
 
 
 %------------------------------------------------------------------------------
@@ -113,11 +124,16 @@
 %------------------------------ Grafiken: -------------------------------------
 %------------------------------------------------------------------------------
 
-\usepackage[]{graphicx}   % einbinden von Grafiken
-\usepackage{captcont}     % Für Tabellen oder Abbildungen über mehrere Seiten
-\usepackage[
-            labelfont=bf  % "Abbildung 1" bzw. "Tabelle 1" fett
-           ]{caption}
+\usepackage[]{graphicx}          % einbinden von Grafiken
+\usepackage{captcont}            % Für Tabellen oder Abbildungen über mehrere Seiten
+
+\usepackage{caption}
+\DeclareCaptionFont{tugreen}{\color{tugreen}}
+\captionsetup{%
+            labelfont={bf,tugreen},     % Label fett und in TU-Grün
+            format=plain,               % Caption-Text steht auch unter "Tabelle x"
+            width=0.9\textwidth         % Bereich für Caption schmaler als für Text
+           }
 
 \usepackage{subcaption}   % for subfigures
 
@@ -148,7 +164,6 @@
 
 
 \usepackage[pdfusetitle,unicode]{hyperref}
-\usepackage{xcolor}
 \usepackage{eurosym}
 \usepackage[ngerman]{varioref}
 
@@ -158,7 +173,7 @@
 %------------------------------------------------------------------------------
 
 %Titel der Arbeit
-\newcommand{\thetitle}{\LaTeX-Vorlage für die Bachelorarbeit}
+\newcommand{\thetitle}{\LaTeX-Vorlage für die Bachelorarbeit in TU-Farben}
 \newcommand{\Jahr}{2014}
 \newcommand{\Geburtsort}{Castrop-Rauxel}
 \newcommand{\Lehrstuhl}{Experimentelle Physik V}
@@ -173,6 +188,9 @@
     geboren in \Geburtsort
 }
 
+\titlehead{
+    \includegraphics[height=1.5cm]{Plots/tu-logo.pdf}
+}
 \title{\thetitle}
 \date{\Jahr}
 
