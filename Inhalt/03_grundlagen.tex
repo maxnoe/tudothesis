@@ -32,8 +32,11 @@ Damit Texmaker das Dokument korrekt kompiliert, fügen sie einen benutzerdefinie
     \item Klicken sie oben in der Menüleiste auf \emph{Benutzer/in}
     \item Klick auf \emph{Eigene Befehle}
     \item Klich auf \emph{Eigene Befehle editieren}, dort können Sie bis zu 5 eigene Befehle definieren
-    \item Geben Sie dem Befehl unter \emph{Menüeintrag} einen Namen und tragen sie folgende Zeile in das Befehlsfeld ein: \\
-        \texttt{lualatex \%.tex | biber \%.bcf | lualatex \%.tex | lualatex \%.tex}
+    \item Geben Sie dem Befehl unter \emph{Menüeintrag} einen Namen und tragen sie folgende Befehle in das Befehlsfeld ein: \\
+        \texttt{lualatex -interaction=nonstopmode \%.tex | \\
+                biber \%.bcf | \\
+                lualatex -interaction=nonstopmode \%.tex | \\
+                lualatex -interaction=nonstopmode \%.tex}
     \item Bestätigen Sie mit \emph{OK}
 \end{enumerate}
 
