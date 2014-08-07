@@ -55,13 +55,14 @@
 
 \usepackage{polyglossia}     % Deutsche Spracheinstellungen
     \setdefaultlanguage{german}
+% \usepackage[ngerman]{babel}
 
 \usepackage{csquotes}           % stellt den \enquote{} Befehl
 
 
 % Schriftarten einstellen, hier können auch Schriftarten des Systems genutzt werden:
 
-%\usepackage[protrusion=true, expansion]{microtype}
+% \usepackage[protrusion=true, expansion]{microtype}
 \usepackage{fontspec}
 \defaultfontfeatures{Ligatures=TeX}
 \setmainfont{Latin Modern Roman}
@@ -163,7 +164,7 @@
 %------------------------------------------------------------------------------
 
 
-\usepackage[pdfusetitle,unicode]{hyperref}
+\usepackage[pdfusetitle,unicode,hidelinks]{hyperref}
 \usepackage{eurosym}
 \usepackage[ngerman]{varioref}
 
@@ -185,7 +186,7 @@
 \author{
     Maximilian Nöthe 
     \thanks{maximilian.noethe@tu-dortmund.de} \\
-    geboren in \Geburtsort
+    \small geboren in \Geburtsort
 }
 
 \titlehead{
