@@ -31,6 +31,7 @@
         captions=tableheading,  % Spacing für Captions über Tabellen an
         headsepline,            % Linie unter der Kopfzeile
         titlepage=firstiscover, % Titelseite ist Deckblatt, symmetrische Ränder
+        numbers=noenddot,       % keine Punkte nach Abilldungs/Kapitel/Tabellen Nummerierung
         headings=normal         % kleinere Überschriften
     ]
     {scrbook}
@@ -52,7 +53,9 @@
 %------------------------------ Sprache und Schrift: --------------------------
 %------------------------------------------------------------------------------
 
-\usepackage[ngerman]{babel}     % Deutsche Spracheinstellungen
+% \usepackage[ngerman]{babel}     % Deutsche Spracheinstellungen
+\usepackage{polyglossia}
+\setdefaultlanguage{german}
 
 \usepackage{csquotes}           % stellt den \enquote{} Befehl
 
@@ -113,10 +116,12 @@
 %------------------------------ Grafiken: -------------------------------------
 %------------------------------------------------------------------------------
 
-\usepackage[]{graphicx}   % einbinden von Grafiken
-\usepackage{captcont}     % Für Tabellen oder Abbildungen über mehrere Seiten
+\usepackage[]{graphicx}         % einbinden von Grafiken
+\usepackage{captcont}           % Für Tabellen oder Abbildungen über mehrere Seiten
 \usepackage[
-            labelfont=bf  % "Abbildung 1" bzw. "Tabelle 1" fett
+            labelfont=bf,       % "Abbildung 1" bzw. "Tabelle 1" fett
+            width=0.9\textwidth,
+            format=plain
            ]{caption}
 
 \usepackage{subcaption}   % for subfigures
