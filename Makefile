@@ -9,4 +9,4 @@ BachelorArbeit.pdf: BachelorArbeit.tex Inhalt/*.tex references.bib Plots/*
 	mv *.log *.aux *.out *.toc *.bbl *.bcf *.run.xml *.blg ./logfiles
 
 clean:
-	rm -r logfiles
+	rm -rf logfiles
