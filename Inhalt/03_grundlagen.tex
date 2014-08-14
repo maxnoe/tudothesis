@@ -121,7 +121,17 @@ Tragen Sie alle ihre Quellen in die Datei \texttt{references.bib} ein, Sie enth�
 einige Beispiele. Für weitere Informationen lesen Sie bitte die Dokumentation \cite{biblatex}.
 
 Im Text können Sie mit \verb_\cite{kürzel}_ zitieren. Seitenzahlen geben Sie in eckigen Klammern an:
-\verb_\cite[S.~10]{kürzel}_. Das Literaturverzeichnis ist so eingestellt, dass es Ihre Quellen in alphabetischer Reihenfolge nummeriert.
+\verb_\cite[10]{kürzel}_. 
+
+Das Literaturverzeichnis ist so eingestellt, dass es Ihre Quellen in alphabetischer Reihenfolge nach Autoren nummeriert.
+Möchten Sie das Literaturverzeichnis nach der Reihenfolge des Auftauchens im Text sortieren, fügen sie die Option \texttt{sorting=none} beim Laden
+des BibLaTeX-Pakets hinzu.
+
+Den Zitier- und Bibliographie-Stil geben sie mit der Option \texttt{style=Stil} an. Die beiden gebräuchlisten Stile sind \texttt{numeric} und \texttt{alphabetic}. 
+Bei \texttt{numeric} werden die Quellen durchnummeriert, bei \texttt{alphabetic} wird ein Buchstabenkürzel aus Autor(en)-Name(n) und Jahr verwendet.
+Für weitere Stile konsultieren sie bitte die Dokumentation: \cite{biblatex}.
+
+Ein Beispiel für das Zitieren eine Buches lautet so \cite{handbook_adhesives}, wissenschaftliche Artikel hingegen werden so \cite{einstein,harvey_jms_2003} zitiert.
 
 Damit das Literaturverzeichnis erstellt wird, ist ein Aufruf von \texttt{biber} nach einem ersten kompilieren mit \texttt{lualatex} nötig.
 Danach muss das Dokument erneut mit \texttt{lualatex} kompiliert werden. 
