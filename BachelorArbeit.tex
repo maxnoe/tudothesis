@@ -45,21 +45,21 @@
 \subject{Arbeit zur Erlangung des akademischen Grades\\Bachelor of Science}
 \publishers{Lehrstuhl für \Lehrstuhl \\ Fakultät Physik \\ Technische Universität Dortmund}
 
-%Gutachterseite
-\lowertitleback{
-    \begin{tabbing}
-        Erstgutachter: \hspace{3em}\=   \Betreuer \\ 
-        Zweitgutachter: \> \Zweitgutachter\\
-        Abgabedatum: \>\Abgabedatum
-    \end{tabbing}
-}
-
-
 
 
 \begin{document}
 \frontmatter
 \maketitle
+%Gutachterseite
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{tabbing}
+    Erstgutachter: \hspace{3em}\=   \Betreuer \\ 
+    Zweitgutachter: \> \Zweitgutachter\\
+    Abgabedatum: \>\Abgabedatum
+\end{tabbing}
+\newpage
+
 % hier beginnt der Vorspann, nummeriert in römischen Zahlen
 \input{Inhalt/00_abstract.tex}
 \tableofcontents
