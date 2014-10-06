@@ -1,12 +1,18 @@
-all: ./BachelorArbeit.pdf
+all: build/BachelorArbeit.pdf
+
+
+TeXOptions = --interaction=nonstopmode \
+			 --halt-on-error \
+			 --output-directory=build
                                                                                 
-BachelorArbeit.pdf: BachelorArbeit.tex Inhalt/*.tex references.bib Plots/*
-	lualatex BachelorArbeit.tex
-	biber BachelorArbeit.bcf
-	lualatex BachelorArbeit.tex
-	lualatex BachelorArbeit.tex
-	mkdir -p logfiles
-	mv *.log *.aux *.out *.toc *.bbl *.bcf *.run.xml *.blg ./logfiles
+build/BachelorArbeit.pdf: header.tex BachelorArbeit.tex Inhalt/*.tex references.bib Plots/* | build
+	lualatex $(TeXOptions) BachelorArbeit.tex
+	biber build/BachelorArbeit.bcf
+	lualatex $(TeXOptions) BachelorArbeit.tex
+	lualatex $(TeXOptions) BachelorArbeit.tex
+
+build:
+	mkdir -p build/
 
 clean:
-	rm -rf logfiles
+	rm -rf build

@@ -8,16 +8,16 @@ Lesenswert ist außerdem das \LaTeX-Tabu: \cite{l2tabu}, sowie \emph{Modern Pack
 
 \section{Erstellen des Ausgabedokuments mit Make}
 
-Für diese Vorlage wird ein Makefile zur Verfügung gestellt, welches automatisch alle Schritte ausführt, die für das fertige Dokument nötig sind. Make prüft, ob die Quelldateien verändert wurden, falls nicht, werden auch keine Befehle ausgeführt.
+Für diese Vorlage wird ein Makefile zur Verfügung gestellt, welches automatisch alle Schritte ausführt, die für das fertige Dokument nötig sind.
+Die Ausgabe erfolgt dabei in den Unterordner \texttt{build/}.
+Make prüft, ob die Quelldateien verändert wurden, falls nicht, werden auch keine Befehle ausgeführt.
 
 Folgende Befehle werden durch das Makefile druchgeführt, falls sich die Quelldateien verändert haben:
-
 \begin{enumerate}
     \item \texttt{lualatex BachelorArbeit.tex}
-    \item \texttt{biber BachelorArbeit.tex}
+    \item \texttt{biber BachelorArbeit.bcf}
     \item \texttt{lualatex BachelorArbeit.tex}
     \item \texttt{lualatex BachelorArbeit.tex}
-    \item verschieben der Hilfs- und Logdateien in den Ordner logfiles
 \end{enumerate}
 
 
@@ -25,9 +25,8 @@ Download und weitere Informationen zu Make gibt es unter \cite{make}. Die Befehl
 Wenn Sie sie unter Windows nutzen wollen, benötigen Sie einen Bash-Emulator, wie Git Bash, Download unter \cite{gitbash} möglich.
 Wenn Sie Make installiert haben, rufen Sie einfach in der Konsole im Verzeichnis der Arbeit den Befehl \texttt{make}.
 
-
 \section{Erstellen des Ausgabedokuments mit Texmaker}
-
+\subsection{Einrichten der nötigen Befehle}
 Ein beliebter Editor für alle Betriebssysteme ist Texmaker, Download unter \cite{texmaker}.
 Damit Texmaker das Dokument korrekt kompiliert, fügen sie einen benutzerdefinierten Befehl hinzu:
 \begin{enumerate}
@@ -35,10 +34,10 @@ Damit Texmaker das Dokument korrekt kompiliert, fügen sie einen benutzerdefinie
     \item Klick auf \emph{Eigene Befehle}
     \item Klich auf \emph{Eigene Befehle editieren}, dort können Sie bis zu 5 eigene Befehle definieren
     \item Geben Sie dem Befehl unter \emph{Menüeintrag} einen Namen und tragen sie folgende Befehle in das Befehlsfeld ein: \\
-        \texttt{lualatex -interaction=nonstopmode \%.tex | \\
-                biber \%.bcf | \\
-                lualatex -interaction=nonstopmode \%.tex | \\
-                lualatex -interaction=nonstopmode \%.tex}
+      \verb+lualatex --batchmode --halt-on-error %.tex |+ \\
+          \verb+biber %.bcf |+ \\
+          \verb+lualatex --batchmode --halt-on-error %.tex |+ \\
+          \verb+lualatex --batchmode --halt-on-error %.tex+ 
     \item Bestätigen Sie mit \emph{OK}
 \end{enumerate}
 
@@ -52,6 +51,11 @@ Damit Texmaker das Dokument korrekt kompiliert, fügen sie einen benutzerdefinie
 
 In Abbildung \ref{fig:texmaker} ist ein Screenshot des Befehlsmenü gezeigt. Ihren Befehl können Sie nun im Drop-Down-Menü zum 
 kompilieren des Dokuments auswählen und mit einem Klick auf den Pfeil starten.
+
+\subsection{Aufräumen}
+
+Nach einem \LaTeX-Fehler ist es oft notwendig, die erstellten Hilfsdateien zu löschen.
+Klicken Sie hierzu auf \emph{Werkzeuge}→\emph{Aufräumen}.
 
 
 \chapter{\LaTeX-Grundlagen}
