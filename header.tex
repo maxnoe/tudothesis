@@ -1,0 +1,155 @@
+%------------------------------------------------------------------------------
+%---------------- Docmentenklasse, Layout und Ränder: -------------------------
+%------------------------------------------------------------------------------
+
+\documentclass[
+        paper=a4,               % Papierformat DIN A4
+        BCOR=12mm,              % 12mm Binderandkorrektur
+        parskip=half,           % Absätze als halbe Leerzeile
+        headsepline,            % Linie zwischen Kopfzeile und Dokument
+        cleardoublepage=plain,  % Keine Kopf/Fußzeile auf Leerseiten
+        bibliography=totoc,     % Bibliographie als nicht-nummeriertes 
+                                % Kapitel im Inhaltsverzeichnis
+        %open=right,             % Kapitel beginnen immer aufrechten Seiten
+        open=any,               % Kapitel dürfen auf beiden Seiten beginnen
+        numbers=noenddot,       % Keine Punkte nach Abbildungsnummern
+        captions=tableheading,  % Spacing für Captions über Tabellen an
+        titlepage=firstiscover, % Titelseite ist Deckblatt, symmetrische Ränder
+        numbers=noenddot,       % keine Punkte nach Abilldungs/Kapitel/Tabellen Nummerierung
+        headings=normal         % kleinere Überschriften
+    ]
+    {scrbook}
+
+
+% Patch für LaTeX laden:
+\usepackage{fixltx2e}
+% Warnung, falls erneut kompilirt werden muss:
+\usepackage[aux]{rerunfilecheck}
+
+% Beschränkung auf chapter und section im Inhaltsverzeichnis:            
+\setcounter{tocdepth}{1}
+
+%------------------------------------------------------------------------------
+%------------------------------ Sprache und Schrift: --------------------------
+%------------------------------------------------------------------------------
+
+% Deutsche Spracheinstellungen
+\usepackage{polyglossia}
+\setdefaultlanguage{german}
+
+% stellt den \enquote{} Befehl
+\usepackage[autostyle]{csquotes}
+
+% verbessert das allgemeine Schriftbild:
+\usepackage{microtype}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+
+
+
+%------------------------------------------------------------------------------
+%-------------------------   Kopf/Fußzeile/Farben------------------------------
+%------------------------------------------------------------------------------
+
+
+\usepackage{xcolor}
+\xdefinecolor{tugreen}{RGB}{128, 186, 38}
+
+\usepackage{scrlayer-scrpage}
+\pagestyle{scrheadings}
+
+\addtokomafont{title}{\color{tugreen}}          % Titel auf der Titelseite in TU-Grün
+\addtokomafont{sectioning}{\color{tugreen}}     % Kapitel-Überschriften in TU-Grün
+\addtokomafont{pagenumber}{\color{tugreen}}     % Seitenzahl in TU-Grün
+\addtokomafont{chapterentry}{\color{tugreen}}   % Inhaltsverziechnis
+\setheadsepline{0.75pt}[\color{tugreen}]        % Linie unter Kopzzeile in TU-Grün
+
+
+%------------------------------------------------------------------------------
+%------------------------ Für die Matheumgebung--------------------------------
+%------------------------------------------------------------------------------
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+% Enable Unicode-Math and follow the ISO-Standards for typesetting math
+\usepackage[
+  math-style=ISO,
+  bold-style=ISO,
+  sans-style=italic,
+  nabla=upright,
+  partial=upright,
+]{unicode-math}
+
+% schöne Brüche im Text mit \sfrac{}{}
+\usepackage{xfrac}  
+
+
+%Gleichungsnummern Kapitel.Unterkapitel.Gleichung
+\renewcommand{\theequation}{\thesection{}.\arabic{equation}}
+\numberwithin{equation}{chapter}
+\numberwithin{equation}{section}
+
+%------------------------------------------------------------------------------
+%---------------------------- Einheiten ---------------------------------------
+%------------------------------------------------------------------------------
+
+\usepackage[
+  locale=DE,
+  separate-uncertainty=true,
+  per-mode=symbol-or-fraction,
+]{siunitx}
+\sisetup{math-micro=\text{µ},text-micro=µ}
+
+%------------------------------------------------------------------------------
+%------------------------------ Tabellen: -------------------------------------
+%------------------------------------------------------------------------------
+
+\usepackage{booktabs}       % stellt \toprule, \midrule, \bottomrule
+\usepackage{threeparttable} % für komplexere Tabellen
+
+%------------------------------------------------------------------------------
+%------------------------------ Grafiken: -------------------------------------
+%------------------------------------------------------------------------------
+
+\usepackage[]{graphicx}
+\usepackage{grffile}
+
+\usepackage{float}
+\floatplacement{figure}{htbp}
+\floatplacement{table}{htbp}
+
+\usepackage{caption}
+\DeclareCaptionFont{tugreen}{\color{tugreen}}
+\captionsetup{%
+            labelfont={bf,tugreen},     % Label fett und in TU-Grün
+            format=plain,               % Caption-Text steht auch unter "Tabelle x"
+            width=0.9\textwidth         % Bereich für Caption schmaler als für Text
+           }
+
+\usepackage{subcaption}   % for subfigures
+
+
+%------------------------------------------------------------------------------
+%------------------------------ Bibliographie ---------------------------------
+%------------------------------------------------------------------------------
+
+\usepackage[backend=biber]{biblatex}    % Biblatex mit biber
+    \addbibresource{references.bib}     % die Bibliographie einbinden
+
+\DefineBibliographyStrings{ngerman}{andothers = {{et\,al\adddot}}}
+
+
+%------------------------------------------------------------------------------
+%------------------------------ Sonstiges: ------------------------------------
+%------------------------------------------------------------------------------
+
+
+\usepackage{eurosym}
+\usepackage[pdfusetitle,unicode, linkbordercolor=tugreen]{hyperref}
+\usepackage{bookmark}
+\usepackage[shortcuts]{extdash}
+
+
