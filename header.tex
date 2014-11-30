@@ -15,10 +15,8 @@
         numbers=noenddot,       % Keine Punkte nach Abbildungsnummern
         captions=tableheading,  % Spacing für Captions über Tabellen an
         titlepage=firstiscover, % Titelseite ist Deckblatt, symmetrische Ränder
-        numbers=noenddot,       % keine Punkte nach Abilldungs/Kapitel/Tabellen Nummerierung
-        headings=normal         % kleinere Überschriften
-    ]
-    {scrbook}
+        headings=normal,         % kleinere Überschriften
+    ]{scrbook}
 
 
 % Patch für LaTeX laden:
@@ -82,6 +80,7 @@
   nabla=upright,
   partial=upright,
 ]{unicode-math}
+\setmathfont{Latin Modern Math}
 
 % schöne Brüche im Text mit \sfrac{}{}
 \usepackage{xfrac}  
