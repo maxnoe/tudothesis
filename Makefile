@@ -1,15 +1,15 @@
-all: build/BachelorArbeit.pdf
+all: build/thesis.pdf
 
 
 TeXOptions = --interaction=nonstopmode \
 			 --halt-on-error \
 			 --output-directory=build
                                                                                 
-build/BachelorArbeit.pdf: header.tex BachelorArbeit.tex Inhalt/*.tex references.bib Plots/* | build
-	lualatex $(TeXOptions) BachelorArbeit.tex
-	biber build/BachelorArbeit.bcf
-	lualatex $(TeXOptions) BachelorArbeit.tex
-	lualatex $(TeXOptions) BachelorArbeit.tex
+build/thesis.pdf: header.tex thesis.tex Inhalt/*.tex references.bib Plots/* | build
+	lualatex $(TeXOptions) thesis.tex
+	biber build/thesis.bcf
+	lualatex $(TeXOptions) thesis.tex
+	lualatex $(TeXOptions) thesis.tex
 
 build:
 	mkdir -p build/
