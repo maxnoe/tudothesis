@@ -107,10 +107,13 @@
 %------------------------------ Bibliographie ---------------------------------
 %------------------------------------------------------------------------------
 
-\usepackage[backend=biber]{biblatex}    % Biblatex mit biber
-\addbibresource{references.bib}         % die Bibliographie einbinden
-
-\DefineBibliographyStrings{ngerman}{andothers = {{et\,al\adddot}}}
+\usepackage[
+  backend=biber,   % use modern biber backend
+  autolang=hyphen, % load hyphenation rules for if language of bibentry is not
+                   % german, has to be loaded with \setotherlanguages
+]{biblatex}
+\addbibresource{references.bib}  % die Bibliographie einbinden
+\DefineBibliographyStrings{ngerman}{andothers = {{et\,al\adddot}}} 
 
 %------------------------------------------------------------------------------
 %------------------------------ Sonstiges: ------------------------------------
@@ -140,7 +143,6 @@
 
 % tu logo on top of the titlepage
 \titlehead{\includegraphics[height=1.5cm]{logos/tu-logo.pdf}}
-
 
 \begin{document}
 \frontmatter
