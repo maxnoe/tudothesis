@@ -1,6 +1,5 @@
 \ProvidesClass{tudothesis}[2015/02/20 v0.5 wrapper to scrbook for thesis at TUDo]
 \LoadClass[
-  paper=a4,               % paper format DIN A4
   headsepline,            % line  between header and text body
   cleardoublepage=plain,  % no header/footer on empty pages
   bibliography=totoc,     % bibliography as unnumbered chapter in toc
