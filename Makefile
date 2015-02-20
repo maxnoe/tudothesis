@@ -5,7 +5,7 @@ TeXOptions = --interaction=nonstopmode \
 			 --halt-on-error \
 			 --output-directory=build
                                                                                 
-build/thesis.pdf: header.tex thesis.tex Inhalt/*.tex references.bib Plots/* | build
+build/thesis.pdf: tudothesis.cls thesis.tex Inhalt/*.tex references.bib Plots/* | build
 	lualatex $(TeXOptions) thesis.tex
 	biber build/thesis.bcf
 	lualatex $(TeXOptions) thesis.tex
