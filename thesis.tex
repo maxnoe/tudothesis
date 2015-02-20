@@ -1,0 +1,174 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%   Vorlage für eine Abschlussarbeit   %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Erstellt von Maximilian Nöthe, <maximilian.noethe@tu-dortmund.de>
+% ausgelegt für lualatex und Biblatex mit biber
+
+% Kompilieren mit 
+% lualatex dateiname.tex
+% biber dateiname.bcf
+% lualatex dateiname.tex
+% lualatex dateiname.tex
+% oder einfach mit:
+% make
+
+\RequirePackage{fixltx2e}  % load patch for LaTeX2ε
+\documentclass[
+  tucolor,
+  BCOR=12mm,     % 12mm binding corrections
+  parskip=half,  % new paragraphs start with half line vertical space
+  open=any,      % chapter start on odd and even pages
+]{tudothesis}
+
+
+% Warning, if another latex run is needed
+\usepackage[aux]{rerunfilecheck}
+
+% just list chapters and sections in the toc, not subsections or smaller
+\setcounter{tocdepth}{1}
+
+%------------------------------------------------------------------------------
+%------------------------------ Sprache und Schrift: --------------------------
+%------------------------------------------------------------------------------
+
+% german language
+\usepackage{polyglossia}
+\setdefaultlanguage{german}
+
+% for english abstract and english titles in the toc
+\setotherlanguages{english}
+
+% intelligent quotation marks, language and nesting sensitive
+\usepackage[autostyle]{csquotes}
+
+% microtypographical features, makes the text look nicer on the small scale
+\usepackage{microtype}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}  % -- becomes en-dash etc.
+
+%------------------------------------------------------------------------------
+%------------------------ Für die Matheumgebung--------------------------------
+%------------------------------------------------------------------------------
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+% Enable Unicode-Math and follow the ISO-Standards for typesetting math
+\usepackage[
+  math-style=ISO,
+  bold-style=ISO,
+  sans-style=italic,
+  nabla=upright,
+  partial=upright,
+]{unicode-math}
+
+% nice, small fracs for the text with \sfrac{}{}
+\usepackage{xfrac}  
+
+
+%------------------------------------------------------------------------------
+%---------------------------- Numbers and Units -------------------------------
+%------------------------------------------------------------------------------
+
+\usepackage[
+  locale=DE,
+  separate-uncertainty=true,
+  per-mode=symbol-or-fraction,
+]{siunitx}
+\sisetup{math-micro=\text{µ},text-micro=µ}
+
+%------------------------------------------------------------------------------
+%-------------------------------- tables  -------------------------------------
+%------------------------------------------------------------------------------
+
+\usepackage{booktabs}       % stellt \toprule, \midrule, \bottomrule
+
+%------------------------------------------------------------------------------
+%-------------------------------- grafics -------------------------------------
+%------------------------------------------------------------------------------
+
+\usepackage{graphicx}
+\usepackage{grffile}
+
+% allow figures to be placed in the running text by default:
+\usepackage{scrhack}
+\usepackage{float}
+\floatplacement{figure}{htbp}
+\floatplacement{table}{htbp}
+
+% keep figures and tables in the section
+\usepackage[section, below]{placeins}
+
+
+%------------------------------------------------------------------------------
+%------------------------------ Bibliographie ---------------------------------
+%------------------------------------------------------------------------------
+
+\usepackage[
+  backend=biber,   % use modern biber backend
+  autolang=hyphen, % load hyphenation rules for if language of bibentry is not
+                   % german, has to be loaded with \setotherlanguages
+]{biblatex}
+\addbibresource{references.bib}  % die Bibliographie einbinden
+\DefineBibliographyStrings{ngerman}{andothers = {{et\,al\adddot}}} 
+
+%------------------------------------------------------------------------------
+%------------------------------ Sonstiges: ------------------------------------
+%------------------------------------------------------------------------------
+
+\usepackage[pdfusetitle,unicode,linkbordercolor=tugreen]{hyperref}
+\usepackage{bookmark}
+\usepackage[shortcuts]{extdash}
+
+%------------------------------------------------------------------------------
+%-------------------------    Angaben zur Arbeit   ----------------------------
+%------------------------------------------------------------------------------
+
+\author{%
+    Maximilian Nöthe\\
+    geboren in \thebirthplace%
+}
+\title{\LaTeX-Dokumentenklasse und Vorlage für Abschlussarbeiten an der TU Dortmund}
+\date{2014}
+\birthplace{Castrop-Rauxel}
+\chair{Lehrstuhl für Experimentelle Physik V}
+\division{Fakultät Physik}
+\thesisclass{Bachelor of Science}
+\submissiondate{31. September 2015}
+\firstcorrector{Prof.~Dr.~Erstgutachter}
+\secondcorrector{Prof.~Dr.~Zweitgutachter}
+
+% tu logo on top of the titlepage
+\titlehead{\includegraphics[height=1.5cm]{logos/tu-logo.pdf}}
+
+\begin{document}
+\frontmatter
+\maketitle
+
+% Gutachterseite
+\makecorrectorpage
+
+% hier beginnt der Vorspann, nummeriert in römischen Zahlen
+\input{Inhalt/00_abstract.tex}
+\tableofcontents
+
+\mainmatter
+% Hier beginnt der Inhalt mit Seite 1 in arabischen Ziffern
+\input{./Inhalt/01_einleitung.tex}
+\input{./Inhalt/02_struktur.tex}
+\input{./Inhalt/03_grundlagen.tex}
+\input{./Inhalt/04_figs_tabs.tex}
+
+\appendix
+% Hier beginnt der Anhang, nummeriert in lateinischen Buchstaben
+\input{./Inhalt/a_anhang.tex}
+
+\backmatter
+\printbibliography
+
+\cleardoublepage
+\input{./Inhalt/eid_versicherung.tex}
+\end{document}

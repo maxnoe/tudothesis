@@ -41,7 +41,7 @@ Damit Texmaker das Dokument korrekt kompiliert, fügen sie einen benutzerdefinie
     \item Bestätigen Sie mit \emph{OK}
 \end{enumerate}
 
-\begin{figure}[!h]
+\begin{figure}
     \centering
     \includegraphics[width=12cm]{Plots/texmaker.png}
     \caption{Screenshot zur Erstellung des Kompilier-Befehls in Texmaker}
@@ -88,7 +88,7 @@ Werden Fließkommazahlen ohne \texttt{siunitx} gesetzt, entsteht ein hässlicher
 
 Das Paket wurde mit deutschen Spracheinstellungen (also mit Komma als Dezimaltrennzeichen und $\cdot$ zwischen Zahl und Zehnerpotenz) geladen, sowie mit den Einstellungen, dass die Standardabweichung stets durch $\pm$ abgetrennt wird und Einheiten falls nötig als Brüche ausgegeben werden.
 
-\begin{table}[!h]
+\begin{table}
     \centering
     \caption{Beispiele für siunitx}
     \label{tab:si}
@@ -135,7 +135,8 @@ Den Zitier- und Bibliographie-Stil geben sie mit der Option \texttt{style=Stil} 
 Bei \texttt{numeric} werden die Quellen durchnummeriert, bei \texttt{alphabetic} wird ein Buchstabenkürzel aus Autor(en)-Name(n) und Jahr verwendet.
 Für weitere Stile konsultieren sie bitte die Dokumentation: \cite{biblatex}.
 
-Ein Beispiel für das Zitieren eines Buches lautet so \cite{handbook_adhesives}, wissenschaftliche Artikel hingegen werden so \cite{einstein,harvey_jms_2003} zitiert.
+Ein Beispiel für das Zitieren eines Buches lautet so \cite{handbook_adhesives},
+wissenschaftliche Artikel hingegen werden so \cite{einstein} zitiert.
 
 Damit das Literaturverzeichnis erstellt wird, ist ein Aufruf von \texttt{biber} nach einem ersten kompilieren mit \texttt{lualatex} nötig.
 Danach muss das Dokument erneut mit \texttt{lualatex} kompiliert werden. 
