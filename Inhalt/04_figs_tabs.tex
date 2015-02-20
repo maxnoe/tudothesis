@@ -20,17 +20,16 @@ Setzen Sie Punkte hinter Abbildungsunterschriften.
 
 Tabellen sollten so einfach wie möglich aufgebaut sein, verzichten Sie auf zu viele Linien. In fast allen Fällen reichen drei horizontale Linien aus, jeweils über und unter der Tabelle und zwischen den Spaltenüberschriften und der eigentlichen Tabelle.
 
-Das Paket \texttt{booktabs} stellt hierfür die Befehle \verb_\toprule_, \verb_\midrule_ und 
+Das Paket \texttt{booktabs} stellt hierfür \verb_\toprule_, \verb_\midrule_ und 
 \verb_\bottomrule_ zur Verfügung.
 Das Paket \texttt{siunitx} stellt eine extrem mächtige neue Spalteneinstellung bereit: \texttt{S}, mit ihr können Zahlen und Einheiten sehr sauber und gut ausgerichtet gesetzt werden.
 
 Diese Vorlage geht von Tabellenüberschriften aus, möchten Sie dagegen Tabellenunterschriften entfernen Sie das entsprechende optionale Argument für die Dokumentenklasse in der Präambel.
 
-Eine Beispiel ist Tabelle \ref{tab:bsp}.
-
+Ein Beispiel ist Tabelle \ref{tab:bsp}.
 \begin{table}
     \centering
-    \caption{Beispieltabelle mit willkürlichen Werten, für die Zahlenwerte wurde die S-Option aus SIunitx verwendet, für die Einheitenspalte die s-Option.}
+    \caption{Beispieltabelle mit willkürlichen Werten, für die Zahlenwerte wurde die S-Option aus \texttt{siunitx} verwendet, für die Einheitenspalte die s-Option.}
     \label{tab:bsp}
     \begin{tabular}{l S[table-format=3.2] S[table-format=3.2(2)] s}
         \toprule
