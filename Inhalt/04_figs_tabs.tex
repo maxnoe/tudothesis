@@ -26,17 +26,18 @@ Das Paket \texttt{siunitx} stellt eine extrem mächtige neue Spalteneinstellung 
 
 Diese Vorlage geht von Tabellenüberschriften aus, möchten Sie dagegen Tabellenunterschriften entfernen Sie das entsprechende optionale Argument für die Dokumentenklasse in der Präambel.
 
-Ein Beispiel ist Tabelle \ref{tab:bsp}.
+Ein Beispiel ist Tabelle~\ref{tab:bsp}.
 \begin{table}
     \centering
-    \caption{Beispieltabelle mit willkürlichen Werten, für die Zahlenwerte wurde die S-Option aus \texttt{siunitx} verwendet, für die Einheitenspalte die s-Option.}
+    \caption{Beispieltabelle mit willkürlichen Werten, für die Zahlenwerte wurde die S-Option aus \texttt{siunitx} verwendet}
     \label{tab:bsp}
-    \begin{tabular}{l S[table-format=3.2] S[table-format=3.2(2)] s}
+    \begin{tabular}{S[table-format=4.2] S[table-format=3.2]}
         \toprule
-        Variable    & {Theoriewert} & {gemessener Wert} & {Einheit}\\
+        {$p \mathrel{/} \si{\pascal}$}  & {$T \mathrel{/} \si{\kelvin}$} \\
         \midrule
-        Druck       & 1,23      & 1,31(5)   & \pascal \\
-        Temperatur  & 273,15    & 273,5(2) & \kelvin \\
+        1024,23 & 273,15 \\
+        1025,31 & 274,5 \\
+        1026,27 & 276,2 \\
         \bottomrule
     \end{tabular}
 \end{table}
