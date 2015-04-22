@@ -1,4 +1,12 @@
 \ProvidesClass{tudothesis}[2015/02/20 v0.5 wrapper to scrbook for thesis at TUDo]
+% Option for tu colors:
+\newif\if@tucolor\@tucolorfalse
+\DeclareOption{tucolor}{\@tucolortrue}
+
+% All other Options go to KOMA-Script
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrbook}}
+\ProcessOptions\relax
+
 \LoadClass[
   headsepline,            % line  between header and text body
   cleardoublepage=plain,  % no header/footer on empty pages
@@ -9,13 +17,6 @@
   headings=normal         % size of chapter headings slightly smaller
 ]{scrbook}
 
-% Option for tu colors:
-\newif\if@tucolor\@tucolorfalse
-\DeclareOption{tucolor}{\@tucolortrue}
-
-% All other Options go to KOMA-Script
-\DeclareOption*{\PassOptionsToClass{scrbook}{\CurrentOption}}
-\ProcessOptions\relax
 
 % Define our beloved tu colour:
 \RequirePackage{xcolor}
@@ -29,11 +30,12 @@
 \pagestyle{scrheadings}
 
 \if@tucolor%
-  \addtokomafont{title}{\color{tugreen}}          % Titel auf der Titelseite in TU-Grün
-  \addtokomafont{sectioning}{\color{tugreen}}     % Kapitel-Überschriften in TU-Grün
-  \addtokomafont{pagenumber}{\color{tugreen}}     % Seitenzahl in TU-Grün
-  \addtokomafont{chapterentry}{\color{tugreen}}   % Inhaltsverziechnis
-  \setheadsepline{0.75pt}[\color{tugreen}]        % Linie unter Kopzzeile in TU-Grün
+  \addtokomafont{title}{\color{tugreen}}          % title on titlepage
+  \addtokomafont{sectioning}{\color{tugreen}}     % headlines of the chapters, sections etc. 
+  \addtokomafont{pagenumber}{\color{tugreen}}     % page number in the footer
+  \addtokomafont{chapterentry}{\color{tugreen}}   % chapters in the table of contents
+  \setkomafont{headsepline}{\color{tugreen}}        % line between header and text body
+  \KOMAoption{headsepline}{0.75pt:\textwidth}
   \DeclareCaptionFont{tugreen}{\color{tugreen}}
   \captionsetup{%
               labelfont={bf,tugreen},     % bold label in tu colour
