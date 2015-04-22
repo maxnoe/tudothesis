@@ -61,14 +61,23 @@
 \let\oldtitle\title%
 \renewcommand{\title}[1]{\oldtitle{#1}\newcommand{\thetitle}{#1}}
 
+% initialize commands:
+\newcommand\thebirthplace{}
+\newcommand\thechair{}
+\newcommand\thedivision{}
+\newcommand\thethesisclass{}
+\newcommand\thesubmissiondate{}
+\newcommand\thefirstcorrector{}
+\newcommand\thesecondcorrector{}
+
 % new commands for information about the thesis
-\newcommand\birthplace[1]{\newcommand\thebirthplace{geboren in #1}}
-\newcommand\chair[1]{\newcommand\thechair{#1}}
-\newcommand\division[1]{\newcommand\thedivision{#1}}
-\newcommand\thesisclass[1]{\newcommand\thethesisclass{#1}}
-\newcommand\submissiondate[1]{\newcommand\thesubmissiondate{#1}}
-\newcommand\firstcorrector[1]{\newcommand\thefirstcorrector{#1}}
-\newcommand\secondcorrector[1]{\newcommand\thesecondcorrector{#1}}
+\newcommand\birthplace[1]{\renewcommand\thebirthplace{geboren in #1}}
+\newcommand\chair[1]{\renewcommand\thechair{#1}}
+\newcommand\division[1]{\renewcommand\thedivision{#1}}
+\newcommand\thesisclass[1]{\renewcommand\thethesisclass{#1}}
+\newcommand\submissiondate[1]{\renewcommand\thesubmissiondate{#1}}
+\newcommand\firstcorrector[1]{\renewcommand\thefirstcorrector{#1}}
+\newcommand\secondcorrector[1]{\renewcommand\thesecondcorrector{#1}}
 
 % set title page elements
 \subject{Arbeit zur Erlangung des akademischen Grades\\ \thethesisclass}
@@ -90,26 +99,4 @@
 \let\oldauthor\author
 \renewcommand\author[1]{%
   \oldauthor{#1 \\ \thebirthplace}
-}
-
-% check if all information is given:
-\AtBeginDocument{%
-  \@ifundefined{thebirthplace}{%
-    \ClassError{tudothesis}{your birthplace is not set, use \protect\birthplace{} to set it}{}
-  }{}%
-  \@ifundefined{thefirstcorrector}{%
-    \ClassError{tudothesis}{firstcorrector is not set, use \protect\firstcorrector{} to set it}{}
-  }{}%
-  \@ifundefined{thesecondcorrector}{%
-    \ClassError{tudothesis}{secondcorrector is not set, use \protect\secondcorrector{} to set it}{}
-  }{}%
-  \@ifundefined{thesubmissiondate}{%
-    \ClassError{tudothesis}{submissiondate is not set, use \protect\submissiondate{} to set it}{}
-  }{}%
-  \@ifundefined{thechair}{%
-    \ClassError{tudothesis}{your chair is not set, use \protect\chair{} to set it}{}
-  }{}%
-  \@ifundefined{thedivision}{%
-    \ClassError{tudothesis}{your division is not set, use \protect\division{} to set it}{}
-  }{}%
 }
