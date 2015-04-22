@@ -4,7 +4,24 @@ Diese Vorlage ist auf die Kompilierung mit \texttt{lualatex} ausgelegt.
 Als Dokumentenklasse  wird die \KOMAScript\-Klasse \texttt{scrbook} verwendet.
 Falls Sie Änderungen am Layout vornehmen möchten, lesen Sie die \KOMAScript-Dokumentation: \cite{koma}.
 
-Lesenswert ist außerdem das \LaTeX-Tabu: \cite{l2tabu}, sowie \emph{Modern Packages for \LaTeX} von Philipp Leser: \cite{pleser}.
+Eine umfangreiche Einführung in die moderne Verwendung von \LaTeX{} gibt es hier: \cite{toolbox}, lesenswert ist außerdem das \LaTeX-Tabu: \cite{l2tabu}
+
+Um dieses Dokument vollständig zu erstellen sind maximal vier Programmläufe nötig:
+\begin{enumerate}[nosep]
+    \item \texttt{lualatex BachelorArbeit.tex}
+    \item \texttt{biber BachelorArbeit.bcf}
+    \item \texttt{lualatex BachelorArbeit.tex}
+    \item \texttt{lualatex BachelorArbeit.tex}
+\end{enumerate}
+
+Beim ersten Lauf des \LaTeX-Compilers werden die Kapitel, Links und zitierten Bibliographieeinträge in Hilfsdateien geschrieben.
+
+Dann ist ein Lauf des Programms \texttt{biber} nötig, welches die benötigten Einträge aus der Hilfsdatei einliest, die Einträge aus der \texttt{.bib} Datei einliest, sortiert und formatiert und in eine weitere Hilfsdatei schreibt.
+
+Beim nächsten \LaTeX-Lauf werden dann diese Hilfsdateien eingelesen und Literatur- und Inhaltsverzeichnis erstellt.
+
+Manchmal ist ein vierter Lauf nötig, falls sich durch das einfügen des Literaturverzeichnisses Seitenzahlen verändert haben.
+
 
 \section{Erstellen des Ausgabedokuments mit Make}
 
@@ -12,13 +29,7 @@ Für diese Vorlage wird ein Makefile zur Verfügung gestellt, welches automatisc
 Die Ausgabe erfolgt dabei in den Unterordner \texttt{build/}.
 Make prüft, ob die Quelldateien verändert wurden, falls nicht, werden auch keine Befehle ausgeführt.
 
-Folgende Befehle werden durch das Makefile druchgeführt, falls sich die Quelldateien verändert haben:
-\begin{enumerate}
-    \item \texttt{lualatex BachelorArbeit.tex}
-    \item \texttt{biber BachelorArbeit.bcf}
-    \item \texttt{lualatex BachelorArbeit.tex}
-    \item \texttt{lualatex BachelorArbeit.tex}
-\end{enumerate}
+Falls Sie das Makefile benutzen möchten, sollten Sie alle Abhängigkeiten eintragen (Eigene Dateien für Kapitel, Plots, etc.).
 
 
 Download und weitere Informationen zu Make gibt es unter \cite{make}. Die Befehle sind für die Bash ausgelegt.
@@ -29,7 +40,7 @@ Wenn Sie Make installiert haben, rufen Sie einfach in der Konsole im Verzeichnis
 \subsection{Einrichten der nötigen Befehle}
 Ein beliebter Editor für alle Betriebssysteme ist Texmaker, Download unter \cite{texmaker}.
 Damit Texmaker das Dokument korrekt kompiliert, fügen sie einen benutzerdefinierten Befehl hinzu:
-\begin{enumerate}
+\begin{enumerate}[nosep]
     \item Klicken sie oben in der Menüleiste auf \emph{Benutzer/in}
     \item Klick auf \emph{Eigene Befehle}
     \item Klich auf \emph{Eigene Befehle editieren}, dort können Sie bis zu 5 eigene Befehle definieren
