@@ -5,6 +5,7 @@
 
 % All other Options go to KOMA-Script
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrbook}}
+\PassOptionsToPackage{bibliography=totoc}{biblatex}
 \ProcessOptions\relax
 
 \LoadClass[
