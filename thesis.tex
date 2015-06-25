@@ -31,6 +31,8 @@
 %------------------------------------------------------------------------------
 %------------------------------ Sprache und Schrift: --------------------------
 %------------------------------------------------------------------------------
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}  % -- becomes en-dash etc.
 
 % german language
 \usepackage{polyglossia}
@@ -44,9 +46,6 @@
 
 % microtypographical features, makes the text look nicer on the small scale
 \usepackage{microtype}
-
-\usepackage{fontspec}
-\defaultfontfeatures{Ligatures=TeX}  % -- becomes en-dash etc.
 
 %------------------------------------------------------------------------------
 %------------------------ Für die Matheumgebung--------------------------------
@@ -119,7 +118,7 @@
                    % german, has to be loaded with \setotherlanguages
 ]{biblatex}
 \addbibresource{references.bib}  % die Bibliographie einbinden
-\DefineBibliographyStrings{ngerman}{andothers = {{et\,al\adddot}}} 
+\DefineBibliographyStrings{german}{andothers = {{et\,al\adddot}}} 
 
 %------------------------------------------------------------------------------
 %------------------------------ Sonstiges: ------------------------------------
