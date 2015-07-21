@@ -10,7 +10,6 @@
 
 \LoadClass[
   headsepline,            % line  between header and text body
-  cleardoublepage=plain,  % no header/footer on empty pages
   bibliography=totoc,     % bibliography as unnumbered chapter in toc
   numbers=noenddot,       % no dot after figure/table number
   captions=tableheading,  % correct spacing for table headings
