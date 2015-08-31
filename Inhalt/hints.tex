@@ -2,10 +2,14 @@
 \setcounter{page}{2}
 \section*{Hinweise}
 Empfohlen wird die Verwendung dieser Vorlage mit der jeweils aktuellsten TeXLive Version (Linux, Windows) bzw. MacTeX Version (MacOS).
-Aktuell ist dies TeXLive 2014. Download hier: 
+Aktuell ist dies TeXLive 2015. Download hier:
 \begin{center}
   \href{https://www.tug.org/texlive/}{https://www.tug.org/texlive/}
 \end{center}
+Bei Verwendung von TexLive Versionen 2014 und älter sollte
+die Zeile \verb+\RequirePackage{fixltx2e}+ als erste Zeile der Präambel
+noch vor der Dokumentenklasse eingefügt werden.
+Dies lädt diverse Bugfixes von LaTeX, die ab TexLive 2015 Standard sind.
 
 Achten Sie auch auf die Kodierung der Quelldateien.
 Bei Verwendung von Xe\LaTeX\ oder Lua\LaTeX\ (empfohlen) müssen die
