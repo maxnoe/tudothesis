@@ -1,4 +1,4 @@
-\ProvidesClass{tudothesis}[2015/07/21 v0.8 wrapper to scrbook for thesis at TUDo]
+\ProvidesClass{tudothesis}[2015/08/31 v0.9 wrapper to scrbook for thesis at TUDo]
 % Option for tu colors:
 \newif\if@tucolor\@tucolorfalse
 \DeclareOption{tucolor}{\@tucolortrue}
