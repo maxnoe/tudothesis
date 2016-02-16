@@ -4,12 +4,18 @@
 Empfohlen wird die Verwendung dieser Vorlage mit der jeweils aktuellsten TeXLive Version (Linux, Windows) bzw. MacTeX Version (MacOS).
 Aktuell ist dies TeXLive 2015. Download hier:
 \begin{center}
-  \href{https://www.tug.org/texlive/}{https://www.tug.org/texlive/}
+  \ttfamily\href{https://www.tug.org/texlive/}{https://www.tug.org/texlive/}
 \end{center}
 Bei Verwendung von TexLive Versionen 2014 und älter sollte
-die Zeile \verb+\RequirePackage{fixltx2e}+ als erste Zeile der Präambel
-noch vor der Dokumentenklasse eingefügt werden.
-Dies lädt diverse Bugfixes von LaTeX, die ab TexLive 2015 Standard sind.
+die Zeile
+\begin{center}
+\verb+\RequirePackage{fixltx2e}+ 
+\end{center}
+als erste Zeile der Präambel noch vor der Dokumentenklasse eingefügt werden.
+Dies lädt diverse Bugfixes für LaTeX, die ab TexLive 2015 Standard sind.
+
+Die Vorlage \texttt{thesis.tex} ist für die Kompilierung mit \texttt{lualatex} ausgelegt, mit wenigen Anpassungen kann sie aber auch mit \texttt{pdflatex} oder \texttt{xelatex} verwendet werden. 
+Die Dokumentenklasse \texttt{tudothesis.cls} kann mit allen drei Programmen verwednet werden.
 
 Achten Sie auch auf die Kodierung der Quelldateien.
 Bei Verwendung von Xe\LaTeX\ oder Lua\LaTeX\ (empfohlen) müssen die
@@ -18,7 +24,7 @@ Bei Verwendung von pdf\LaTeX\ nutzen Sie die Pakete \texttt{inputenc} und \textt
 
 Eine aktuelle Version dieser Vorlage steht unter 
 \begin{center}
-  \href{https://github.com/MaxNoe/TUDoThesis}{www.github.com/MaxNoe/TUDoThesis}
+  \ttfamily\href{https://github.com/maxnoe/tudothesis}{www.github.com/maxnoe/tudothesis}
 \end{center}
 zur Verfügung.
 

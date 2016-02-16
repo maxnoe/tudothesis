@@ -15,10 +15,10 @@
 
 \documentclass[
   tucolor,
-  BCOR=12mm,     % 12mm binding corrections
+  BCOR=12mm,     % 12mm binding corrections, adjust to fit your binding
   parskip=half,  % new paragraphs start with half line vertical space
-  open=any,      % chapter start on odd and even pages
-  cleardoublepage=plain,
+  open=any,      % chapters start on both odd and even pages
+  cleardoublepage=plain,  % no header/footer on blank pages
 ]{tudothesis}
 
 
@@ -117,6 +117,7 @@
   backend=biber,   % use modern biber backend
   autolang=hyphen, % load hyphenation rules for if language of bibentry is not
                    % german, has to be loaded with \setotherlanguages
+                   % in the references.bib use langid={en} for english sources
 ]{biblatex}
 \addbibresource{references.bib}  % die Bibliographie einbinden
 \DefineBibliographyStrings{german}{andothers = {{et\,al\adddot}}} 
@@ -149,30 +150,30 @@
 
 \begin{document}
 \frontmatter
-\input{Inhalt/hints.tex}
+\input{content/hints.tex}
 \maketitle
 
 % Gutachterseite
 \makecorrectorpage
 
 % hier beginnt der Vorspann, nummeriert in römischen Zahlen
-\input{Inhalt/00_abstract.tex}
+\input{content/00_abstract.tex}
 \tableofcontents
 
 \mainmatter
 % Hier beginnt der Inhalt mit Seite 1 in arabischen Ziffern
-\input{./Inhalt/01_einleitung.tex}
-\input{./Inhalt/02_struktur.tex}
-\input{./Inhalt/03_grundlagen.tex}
-\input{./Inhalt/04_figs_tabs.tex}
+\input{content/01_einleitung.tex}
+\input{content/02_struktur.tex}
+\input{content/03_grundlagen.tex}
+\input{content/04_figs_tabs.tex}
 
 \appendix
 % Hier beginnt der Anhang, nummeriert in lateinischen Buchstaben
-\input{./Inhalt/a_anhang.tex}
+\input{content/a_anhang.tex}
 
 \backmatter
 \printbibliography
 
 \cleardoublepage
-\input{./Inhalt/eid_versicherung.tex}
+\input{content/eid_versicherung.tex}
 \end{document}
