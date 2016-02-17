@@ -29,13 +29,13 @@
 \RequirePackage{scrlayer-scrpage}
 \pagestyle{scrheadings}
 
+\KOMAoption{headsepline}{0.5pt:\textwidth}
 \if@tucolor%
   \addtokomafont{title}{\color{tugreen}}          % title on titlepage
   \addtokomafont{chapter}{\color{tugreen}}     % headlines of the chapters, sections etc. 
   \addtokomafont{pagenumber}{\color{tugreen}}     % page number in the footer
   \addtokomafont{chapterentry}{\color{tugreen}}   % chapters in the table of contents
   \setkomafont{headsepline}{\color{tugreen}}        % line between header and text body
-  \KOMAoption{headsepline}{0.75pt:\textwidth}
   \DeclareCaptionFont{tugreen}{\color{tugreen}}
   \captionsetup{%
               labelfont={bf,tugreen},     % bold label in tu colour
