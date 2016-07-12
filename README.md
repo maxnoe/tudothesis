@@ -1,5 +1,5 @@
-TUDoThesis
-=====================
+# TUDoThesis
+
 
 LaTeX class file and template for a thesis written at TU Dortmund
 
@@ -13,3 +13,16 @@ All used packages and commands are explained
 in depth in the materials of the PeP et al. LaTeX Workshop:
 
 http://toolbox.pep-dortmund.de/notes.html
+
+
+# Compiliation
+
+compile with 
+```
+$ latexmk
+```
+
+or 
+```
+make
+```
