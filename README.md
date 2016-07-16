@@ -1,4 +1,4 @@
-# TUDoThesis
+# TUDoThesis [![Build Status](https://travis-ci.org/MaxNoe/tudothesis.svg?branch=master)](https://travis-ci.org/MaxNoe/tudothesis)
 
 
 LaTeX class file and template for a thesis written at TU Dortmund
