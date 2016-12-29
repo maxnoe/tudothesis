@@ -29,7 +29,7 @@
 \RequirePackage{scrlayer-scrpage}
 \pagestyle{scrheadings}
 
-\KOMAoption{headsepline}{0.5pt:\textwidth}
+\KOMAoption{headsepline}{0.5pt}
 \if@tucolor%
   \addtokomafont{title}{\color{tugreen}}          % title on titlepage
   \addtokomafont{chapter}{\color{tugreen}}     % headlines of the chapters, sections etc. 
