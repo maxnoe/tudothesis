@@ -22,6 +22,16 @@ Beim nächsten \LaTeX-Lauf werden dann diese Hilfsdateien eingelesen und Literat
 
 Manchmal ist ein vierter Lauf nötig, falls sich durch das einfügen des Literaturverzeichnisses Seitenzahlen verändert haben.
 
+Das Tool \texttt{latexmk} übernimmt dies mit nur einem Programmaufruf und
+führ nur so viele Aufrufe durch, wie nötig sind.
+
+\texttt{latexmk --lualatex BachelorArbeit.tex}
+
+Eine gute Option ist es, den \LaTeX{} Output in einem anderen 
+Ordner zu erzeugen, dies ist mit der \texttt{--output-directory} Option möglich:
+
+\texttt{latexmk --output-directory=build --lualatex BachelorArbeit.tex}
+
 
 \section{Erstellen des Ausgabedokuments mit Make}
 
