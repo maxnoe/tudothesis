@@ -55,10 +55,7 @@ Damit Texmaker das Dokument korrekt kompiliert, fügen sie einen benutzerdefinie
     \item Klick auf \emph{Eigene Befehle}
     \item Klich auf \emph{Eigene Befehle editieren}, dort können Sie bis zu 5 eigene Befehle definieren
     \item Geben Sie dem Befehl unter \emph{Menüeintrag} einen Namen und tragen sie folgende Befehle in das Befehlsfeld ein: \\
-      \verb+lualatex --batchmode --halt-on-error %.tex |+ \\
-          \verb+biber %.bcf |+ \\
-          \verb+lualatex --batchmode --halt-on-error %.tex |+ \\
-          \verb+lualatex --batchmode --halt-on-error %.tex+ 
+      \verb+latexmk --lualatex --interaction=batchmode --halt-on-error %.tex |+ \\
     \item Bestätigen Sie mit \emph{OK}
 \end{enumerate}
 
