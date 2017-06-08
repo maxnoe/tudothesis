@@ -24,6 +24,10 @@ if __name__ == '__main__':
         command('Enter command:', 'C', timeout=10)
         command('Enter letter', '-acfghkyIKLMSW',  timeout=10)
         command('Enter letter', 'R',  timeout=10)
+        command('Enter command:', 'O', timeout=10)
+        command('Enter command:', 'D', timeout=10)
+        command('Enter command:', 'S', timeout=10)
+        command('Enter command:', 'R',  timeout=10)
         command('Enter command:', 'I', timeout=10)
     except pexpect.TIMEOUT:
         print('Something went wrong')
