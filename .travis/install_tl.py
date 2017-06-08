@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
     try:
         command('Enter command:', 'C', timeout=10)
-        command('Enter letter', '-acfghkyIKLMSW',  timeout=10)
+        command('Enter letter', '-acfghuDFG',  timeout=10)
         command('Enter letter', 'R',  timeout=10)
         command('Enter command:', 'O', timeout=10)
         command('Enter command:', 'D', timeout=10)
