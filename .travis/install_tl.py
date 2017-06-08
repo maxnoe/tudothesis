@@ -1,6 +1,5 @@
 import pexpect
 from glob import glob
-import os
 import sys
 
 
@@ -10,15 +9,11 @@ def command(pattern, send, **kwargs):
     print(child.after.decode())
     child.sendline(send)
 
+
 if __name__ == '__main__':
     install_script = glob('install-tl-*/install-tl')
 
     child = pexpect.spawn(install_script)
-
-    try:
-        command('Import settings from previous TeX Live installation', 'n', timeout=10)
-    except pexpect.TIMEOUT:
-        print('No previous installation found')
 
     try:
         command('Enter command:', 'C', timeout=10)
