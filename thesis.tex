@@ -6,15 +6,12 @@
 % ausgelegt für lualatex und Biblatex mit biber
 
 % Kompilieren mit 
-% lualatex dateiname.tex
-% biber dateiname.bcf
-% lualatex dateiname.tex
-% lualatex dateiname.tex
+% latexmk --lualatex --output-directory=build thesis.tex
 % oder einfach mit:
 % make
 
 \documentclass[
-  tucolor,
+  tucolor,       % remove for less green,
   BCOR=12mm,     % 12mm binding corrections, adjust to fit your binding
   parskip=half,  % new paragraphs start with half line vertical space
   open=any,      % chapters start on both odd and even pages
@@ -29,7 +26,7 @@
 \setcounter{tocdepth}{1}
 
 %------------------------------------------------------------------------------
-%------------------------------ Sprache und Schrift: --------------------------
+%------------------------------ Fonts, Unicode, Language ----------------------
 %------------------------------------------------------------------------------
 \usepackage{fontspec}
 \defaultfontfeatures{Ligatures=TeX}  % -- becomes en-dash etc.
@@ -48,7 +45,7 @@
 \usepackage{microtype}
 
 %------------------------------------------------------------------------------
-%------------------------ Für die Matheumgebung--------------------------------
+%------------------------ Math Packages and settings --------------------------
 %------------------------------------------------------------------------------
 
 \usepackage{amsmath}
@@ -84,7 +81,7 @@
 %-------------------------------- tables  -------------------------------------
 %------------------------------------------------------------------------------
 
-\usepackage{booktabs}       % stellt \toprule, \midrule, \bottomrule
+\usepackage{booktabs}       % \toprule, \midrule, \bottomrule, etc
 
 %------------------------------------------------------------------------------
 %-------------------------------- graphics -------------------------------------
@@ -119,14 +116,12 @@
                    % german, has to be loaded with \setotherlanguages
                    % in the references.bib use langid={en} for english sources
 ]{biblatex}
-\addbibresource{references.bib}  % die Bibliographie einbinden
-\DefineBibliographyStrings{german}{andothers = {{et\,al\adddot}}} 
+\addbibresource{references.bib}  % the bib file to use
+\DefineBibliographyStrings{german}{andothers = {{et\,al\adddot}}}  % replace u.a. with et al.
 
-%------------------------------------------------------------------------------
-%------------------------------ Sonstiges: ------------------------------------
-%------------------------------------------------------------------------------
 
-\usepackage[pdfusetitle,unicode,linkbordercolor=tugreen]{hyperref}
+% Last packages, do not change order or insert new packages after these ones
+\usepackage[pdfusetitle, unicode, linkbordercolor=tugreen]{hyperref}
 \usepackage{bookmark}
 \usepackage[shortcuts]{extdash}
 
