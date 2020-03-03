@@ -20,7 +20,7 @@
 
 % Define our beloved tu colour:
 \RequirePackage{xcolor}
-\xdefinecolor{tugreen}{RGB}{128, 186, 38}
+\xdefinecolor{tugreen}{RGB}{132, 184, 25}
 
 \RequirePackage{caption}
 \RequirePackage{subcaption}
