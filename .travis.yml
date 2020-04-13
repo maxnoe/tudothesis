@@ -1,14 +1,19 @@
+---
 language: python
 
-python: 3.5
+python: 3.7
+dist: xenial
+
+env:
+  global:
+    - TL_VERSION=2019
+    - PATH=$HOME/texlive/$TL_VERSION/bin/x86_64-linux:$PATH
 
 install:
-  - pip install pexpect
-  - curl -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz | tar xvz
-  - TEXLIVE_INSTALL_PREFIX=/home/travis/texlive python .travis/install_tl.py
-  - export PATH=/home/travis/texlive/2019/bin/x86_64-linux:$PATH
-  - tlmgr update --self --all --reinstall-forcibly-removed
-  - tlmgr install koma-script polyglossia csquotes placeins enumitem biber biblatex ncctools filehook xpatch logreq xstring siunitx pdftexcmds kvoptions stringenc
+  - pip install https://github.com/MaxNoe/texlive-batch-installation/archive/v0.2.1.tar.gz
+  - |
+    python -m install_texlive -p $HOME/texlive -t 2019 -c '-acfghuDFG' \
+    -i 'koma-script,polyglossia,csquotes,placeins,enumitem,biber,biblatex,ncctools,filehook,xpatch,logreq,xstring,siunitx,pdftexcmds,kvoptions,stringenc'
 
 script:
   latexmk
