@@ -12,7 +12,7 @@ env:
 install:
   - pip install https://github.com/MaxNoe/texlive-batch-installation/archive/v0.2.1.tar.gz
   - |
-    python -m install_texlive -p $HOME/texlive -t 2019 -c '-acfghuDFG' \
+    python -m install_texlive -p $HOME/texlive -t 2019 --collections='-acfghuDFG' \
     -i 'koma-script,polyglossia,csquotes,placeins,enumitem,biber,biblatex,ncctools,filehook,xpatch,logreq,xstring,siunitx,pdftexcmds,kvoptions,stringenc'
 
 script:
