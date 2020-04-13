@@ -10,7 +10,7 @@ env:
     - PATH=$HOME/texlive/$TL_VERSION/bin/x86_64-linux:$PATH
 
 install:
-  - pip install https://github.com/MaxNoe/texlive-batch-installation/archive/v0.2.1.tar.gz
+  - pip install https://github.com/MaxNoe/texlive-batch-installation/archive/master.tar.gz
   - |
     python -m install_texlive -p $HOME/texlive -t 2019 --collections='-acfghuDFG' \
     -i 'koma-script,polyglossia,csquotes,placeins,enumitem,biber,biblatex,ncctools,filehook,xpatch,logreq,xstring,siunitx,pdftexcmds,kvoptions,stringenc'
