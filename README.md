@@ -1,4 +1,5 @@
-# TUDoThesis [![Build LaTeX Slides](https://github.com/maxnoe/tudothesis/actions/workflows/build-slides.yml/badge.svg)](https://github.com/maxnoe/tudothesis/actions/workflows/build-slides.yml)
+# TUDoThesis
+
 LaTeX class file and template for a thesis written at TU Dortmund
 
 The template is build for use with _lualatex_ and _biblatex_ with _biber_,
@@ -15,12 +16,12 @@ http://toolbox.pep-dortmund.de/notes.html
 
 # Compiliation
 
-compile with 
+compile with
 ```
 $ latexmk
 ```
 
-or 
+or
 ```
 $ make
 ```
