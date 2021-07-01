@@ -5,7 +5,7 @@
 % Erstellt von Maximilian Nöthe, <maximilian.noethe@tu-dortmund.de>
 % ausgelegt für lualatex und Biblatex mit biber
 
-% Kompilieren mit 
+% Kompilieren mit
 % latexmk --lualatex --output-directory=build thesis.tex
 % oder einfach mit:
 % make
@@ -31,12 +31,9 @@
 \usepackage{fontspec}
 \defaultfontfeatures{Ligatures=TeX}  % -- becomes en-dash etc.
 
-% german language
-\usepackage{polyglossia}
-\setdefaultlanguage{german}
-
-% for english abstract and english titles in the toc
-\setotherlanguages{english}
+% load english (for abstract) and ngerman language
+% the main language has to come last
+\usepackage[american, ngerman]{babel}
 
 % intelligent quotation marks, language and nesting sensitive
 \usepackage[autostyle]{csquotes}
@@ -63,7 +60,7 @@
 \setmathfont{Latin Modern Math}
 
 % nice, small fracs for the text with \sfrac{}{}
-\usepackage{xfrac}  
+\usepackage{xfrac}
 
 
 %------------------------------------------------------------------------------
