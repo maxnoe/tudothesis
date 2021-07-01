@@ -1,4 +1,4 @@
-# TUDoThesis
+# TUDoThesis [![Build Thesis](https://github.com/maxnoe/tudothesis/actions/workflows/build.yml/badge.svg)](https://github.com/maxnoe/tudothesis/actions/workflows/build.yml)
 
 LaTeX class file and template for a thesis written at TU Dortmund
 
