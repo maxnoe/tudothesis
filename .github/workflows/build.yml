@@ -22,9 +22,12 @@ jobs:
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         echo $CONDA/bin >> $GITHUB_PATH
 
-    - name: Build slides
+    - name: Install texlive
       run: |
         pip install https://github.com/maxnoe/texlive-batch-installation/archive/refs/tags/v0.3.0.tar.gz
         install_texlive -p $HOME/texlive -t 2021 --collections="-a" --package-file tex-packages.txt --update
-        export PATH="$HOME/texlive/2021/bin/x86_64-linux:$PATH"
+        echo "$HOME/texlive/2021/bin/x86_64-linux" >> $GITHUB_PATH
+
+    - name: Build document
+      run: |
         latexmk
