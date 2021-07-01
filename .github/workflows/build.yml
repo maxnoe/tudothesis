@@ -1,6 +1,10 @@
-name: Build LaTeX Slides
+name: Build Thesis
 
-on: [push, pull_request]
+on:
+  - push
+  - pull_request
+  - schedule:
+    - cron: '0 16 * * 1'  # Build every monday, 16:00
 
 jobs:
   build-slides:
