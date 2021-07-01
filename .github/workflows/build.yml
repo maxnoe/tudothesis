@@ -1,9 +1,9 @@
 name: Build Thesis
 
 on:
-  - push
-  - pull_request
-  - schedule:
+  push:
+  pull_request:
+  schedule:
     - cron: '0 16 * * 1'  # Build every monday, 16:00
 
 jobs:
