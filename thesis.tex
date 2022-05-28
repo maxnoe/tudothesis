@@ -31,9 +31,12 @@
 \usepackage{fontspec}
 \defaultfontfeatures{Ligatures=TeX}  % -- becomes en-dash etc.
 
-% load english (for abstract) and ngerman language
-% the main language has to come last
-\usepackage[american, ngerman]{babel}
+% load all used languages
+% and set the main language of this thesis
+% use this if this thesis is written in German:
+\usepackage[main=ngerman, english]{babel}
+% use this if this thesis is written in English:
+%\usepackage[main=english, ngerman]{babel}
 
 % intelligent quotation marks, language and nesting sensitive
 \usepackage[autostyle]{csquotes}
@@ -68,11 +71,13 @@
 %------------------------------------------------------------------------------
 
 \usepackage[
-  locale=DE,
   separate-uncertainty=true,
   per-mode=symbol-or-fraction,
 ]{siunitx}
 \sisetup{math-micro=\text{µ},text-micro=µ}
+% automatically choose the right locale
+\addto\extrasngerman{\sisetup{locale = DE}}
+\addto\extrasenglish{\sisetup{locale = UK}}
 
 %------------------------------------------------------------------------------
 %-------------------------------- tables  -------------------------------------
