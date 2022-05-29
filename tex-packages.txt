@@ -41,3 +41,6 @@ epstopdf-pkg
 grfext
 hyphen-german
 pdfpages
+eso-pic
+atbegshi
+pdflscape
