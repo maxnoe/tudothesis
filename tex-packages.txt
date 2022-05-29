@@ -40,3 +40,4 @@ bookmark
 epstopdf-pkg
 grfext
 hyphen-german
+pdfpages
