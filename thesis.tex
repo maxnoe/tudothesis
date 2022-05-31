@@ -56,6 +56,7 @@
   sans-style=italic,
   nabla=upright,
   partial=upright,
+  warnings-off={mathtools-colon,mathtools-overbracket}, % suppress some unnecessary warnings
 ]{unicode-math}
 \setmathfont{Latin Modern Math}
 
@@ -72,7 +73,6 @@
   separate-uncertainty=true,
   per-mode=symbol-or-fraction,
 ]{siunitx}
-\sisetup{math-micro=\text{µ},text-micro=µ}
 
 %------------------------------------------------------------------------------
 %-------------------------------- tables  -------------------------------------
@@ -97,6 +97,12 @@
 % keep figures and tables in the section
 \usepackage[section, below]{placeins}
 
+% allows to include PDFs as full pages
+\usepackage{pdfpages}
+
+% Set the PDF Version of this document to 1.7 (1.4 is the current default)
+% This is needed so that PDFs with Version >1.5 can be included
+\pdfvariable minorversion=7
 
 %------------------------------------------------------------------------------
 %---------------------- customize list environments ---------------------------
@@ -168,5 +174,7 @@
 \printbibliography
 
 \cleardoublepage
-\input{content/eid_versicherung.tex}
+% From https://www.tu-dortmund.de/studierende/im-studium/pruefungsangelegenheiten/allgemeine-vordrucke/
+\includepdf{content/Eidesstattliche_Versicherung.pdf}
+
 \end{document}
