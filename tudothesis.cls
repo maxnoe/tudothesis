@@ -33,8 +33,6 @@
 \if@tucolor%
   \addtokomafont{title}{\color{tugreen}}          % title on titlepage
   \addtokomafont{chapter}{\color{tugreen}}     % headlines of the chapters, sections etc. 
-  \addtokomafont{pagenumber}{\color{tugreen}}     % page number in the footer
-  \addtokomafont{chapterentry}{\color{tugreen}}   % chapters in the table of contents
   \setkomafont{headsepline}{\color{tugreen}}        % line between header and text body
   \DeclareCaptionFont{tugreen}{\color{tugreen}}
   \captionsetup{%
