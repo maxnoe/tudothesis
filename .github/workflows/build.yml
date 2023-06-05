@@ -25,8 +25,8 @@ jobs:
     - name: Install texlive
       run: |
         pip install https://github.com/maxnoe/texlive-batch-installation/archive/refs/tags/v0.3.1.tar.gz
-        install_texlive -p $HOME/texlive -t 2022 --collections="-a" --package-file tex-packages.txt --update
-        echo "$HOME/texlive/2022/bin/x86_64-linux" >> $GITHUB_PATH
+        install_texlive -p $HOME/texlive -t 2023 --collections="-a" --package-file tex-packages.txt --update
+        echo "$HOME/texlive/2023/bin/x86_64-linux" >> $GITHUB_PATH
 
     - name: Build document
       run: |
