@@ -1,7 +1,12 @@
-\ProvidesClass{tudothesis}[2015/08/31 v0.9 wrapper to scrbook for thesis at TUDo]
-% Option for tu colors:
-\newif\if@tucolor\@tucolorfalse
-\DeclareOption{tucolor}{\@tucolortrue}
+\ProvidesClass{tudothesis}[2023/07/18 v0.10 wrapper to scrbook for thesis at TUDo]
+
+% Setup color= to work 
+% Use Keyval to be able to give key-value options
+\RequirePackage{kvoptions}
+% use tugreen as default if key is given as a switch,
+% otherwise leave tugreen empty
+\DeclareStringOption{color}[tugreen]
+\ProcessKeyvalOptions*
 
 % All other Options go to KOMA-Script
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrbook}}
@@ -19,8 +24,11 @@
 
 
 % Define our beloved tu colour:
+% orange one is an accent
 \RequirePackage{xcolor}
-\xdefinecolor{tugreen}{RGB}{132, 184, 25}
+% tu colors
+\definecolor{tugreen}{HTML}{83b818}
+\definecolor{tuorange}{HTML}{d98207}
 
 \RequirePackage{caption}
 \RequirePackage{subcaption}
@@ -30,20 +38,20 @@
 \pagestyle{scrheadings}
 
 \KOMAoption{headsepline}{0.5pt}
-\if@tucolor%
-  \addtokomafont{title}{\color{tugreen}}          % title on titlepage
-  \addtokomafont{chapter}{\color{tugreen}}     % headlines of the chapters, sections etc. 
-  \setkomafont{headsepline}{\color{tugreen}}        % line between header and text body
-  \DeclareCaptionFont{tugreen}{\color{tugreen}}
+\ifx\tudothesis@color\@empty
   \captionsetup{%
-              labelfont={bf,tugreen},     % bold label in tu colour
+              labelfont=bf,               % bold label
               format=plain,               % no indentation under the label
               width=0.9\textwidth,        % slightly smaller width than text
               font=small,                 % font slightly smaller than text
             }
 \else
+  \addtokomafont{title}{\color{\tudothesis@color}}       % title on titlepage
+  \addtokomafont{chapter}{\color{\tudothesis@color}}     % headlines of the chapters, sections etc. 
+  \setkomafont{headsepline}{\color{\tudothesis@color}}   % line between header and text body
+  \DeclareCaptionFont{\tudothesis@color}{\color{\tudothesis@color}}
   \captionsetup{%
-              labelfont=bf,               % bold label
+              labelfont={bf,tugreen},     % bold label in tu colour
               format=plain,               % no indentation under the label
               width=0.9\textwidth,        % slightly smaller width than text
               font=small,                 % font slightly smaller than text
