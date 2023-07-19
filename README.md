@@ -26,4 +26,4 @@ or
 $ make
 ```
 
-For more information, have a look into [example.pdf](https://github.com/maxnoe/TuDoThesis/blob/master/example.pdf)
+For more information, have a look into [example.pdf](https://github.com/maxnoe/TuDoThesis/blob/main/example.pdf)
